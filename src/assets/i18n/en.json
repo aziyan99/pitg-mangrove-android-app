@@ -1,0 +1,12 @@
+{
+  "TABS": {
+    "HOME": "Home",
+    "ABOUT": "About"
+  },
+  "HOME": {
+    "HOME": "Home"
+  },
+  "ABOUT": {
+    "ABOUT": "About"
+  }
+}

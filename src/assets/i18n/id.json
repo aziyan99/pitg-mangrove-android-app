@@ -1,0 +1,12 @@
+{
+  "TABS": {
+    "HOME": "Beranda",
+    "ABOUT": "Tentang"
+  },
+  "HOME": {
+    "HOME": "Beranda"
+  },
+  "ABOUT": {
+    "ABOUT": "Tentang"
+  }
+}
