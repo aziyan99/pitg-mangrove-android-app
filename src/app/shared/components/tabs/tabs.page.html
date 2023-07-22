@@ -1,12 +1,26 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home">
-      <ion-icon aria-hidden="true" name="home-outline"></ion-icon>
+    <ion-tab-button tab="home" (click)="setActiveMenu(1)">
+      <ion-icon
+        aria-hidden="true"
+        name="home"
+        *ngIf="(activeMenu$ | async) === 1; else home_inactive"
+      ></ion-icon>
+      <ng-template #home_inactive>
+        <ion-icon aria-hidden="true" name="home-outline"></ion-icon>
+      </ng-template>
       <ion-label>{{ 'TABS.HOME' | translate }}</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="about">
-      <ion-icon aria-hidden="true" name="information-circle-outline"></ion-icon>
+    <ion-tab-button tab="about" (click)="setActiveMenu(2)">
+      <ion-icon
+        aria-hidden="true"
+        name="information-circle"
+        *ngIf="(activeMenu$ | async) === 2; else about_inactive"
+      ></ion-icon>
+      <ng-template #about_inactive>
+        <ion-icon aria-hidden="true" name="information-circle-outline"></ion-icon>
+      </ng-template>
       <ion-label>{{ 'TABS.ABOUT' | translate }}</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
