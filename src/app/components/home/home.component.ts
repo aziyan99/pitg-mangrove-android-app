@@ -1,13 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
+import { LayoutRepository } from '@shared/repositories/layout.repository';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.component.html',
   standalone: true,
-  imports: [IonicModule, TranslateModule]
+  imports: [IonicModule, TranslateModule, CommonModule],
+  providers: [LayoutRepository]
 })
 export class HomeComponent {
-  constructor() {}
+  public loading$ = this._layoutRepository.loading$;
+  constructor(private _layoutRepository: LayoutRepository) {}
 }

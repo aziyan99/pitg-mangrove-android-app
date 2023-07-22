@@ -5,12 +5,14 @@ import { createStore, withProps } from '@ngneat/elf';
 // 2 = About
 interface LayoutProps {
   activeMenu: 1 | 2;
+  loading: boolean;
 }
 
 const store = createStore(
   { name: 'layout-store' },
   withProps<LayoutProps>({
-    activeMenu: 1
+    activeMenu: 1,
+    loading: false
   })
 );
 

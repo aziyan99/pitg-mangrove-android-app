@@ -7,6 +7,7 @@ export class LayoutRepository implements OnDestroy {
   constructor(@Inject(LAYOUT_STORE) private _store: LayoutStore) {}
 
   public activeMenu$ = this._store.pipe(select((state) => state.activeMenu));
+  public loading$ = this._store.pipe(select((state) => state.loading));
 
   public ngOnDestroy(): void {
     this._store.reset();
@@ -18,5 +19,9 @@ export class LayoutRepository implements OnDestroy {
 
   public setActiveMenu(menu: 1 | 2): void {
     this._store.update(setProp('activeMenu', menu));
+  }
+
+  public setLoading(loading: boolean): void {
+    this._store.update(setProp('loading', loading));
   }
 }
