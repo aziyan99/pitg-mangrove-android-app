@@ -1,5 +1,7 @@
 {
   "name": "PITGMANGROVE",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular-standalone"
 }
