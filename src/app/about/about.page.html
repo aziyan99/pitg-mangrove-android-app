@@ -1,7 +1,6 @@
 <ion-content [fullscreen]="true">
   <div class="min-h-screen bg-green-50">
-    <div class="h-[40vh] rounded-b-xl border border-green-100" appBackgroundImage
-      imageSrc="https://dlh.bulelengkab.go.id/public/uploads/konten/60-pentingnya-hutan-mangrove-bagi-lingkungan-hidup.jpg">
+    <div class="h-[40vh] rounded-b-xl border border-green-100" appBackgroundImage imageSrc="{{aboutBannerUrl}}">
       <div [routerLink]="['/']"
         class="flex items-center w-12 h-12 mt-4 ml-4 bg-green-400 rounded-full show justify-cente">
         <ion-icon class="w-6 h-6 mx-auto" name="arrow-back"></ion-icon>
@@ -9,13 +8,7 @@
     </div>
     <div class="px-3">
       <h3>About Us</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Donec scelerisque hendrerit turpis nec viverra. Etiam nulla erat,
-        tincidunt a aliquet a, faucibus quis enim.
-        Mauris mi libero, tincidunt et dolor vel, fringilla tristique dui.
-        Donec egestas auctor lacus non gravida.
-      </p>
+      <div [innerHTML]="about"></div>
     </div>
   </div>
 </ion-content>

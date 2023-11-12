@@ -15,59 +15,64 @@ import { CoreStore } from '../shared/stores/core.store';
   templateUrl: './main.page.html',
   styleUrls: ['./main.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterModule]
+  imports: [IonicModule, CommonModule, FormsModule, RouterModule],
 })
 export class MainPage implements OnInit {
-
   private unsubscribe$ = new Subject<void>();
-  
-  constructor(
-    private _loadingService: LoadingService, 
-    private _apiService: ApiService,
-    private  _router: Router,
-    private _store: CoreStore) {}
 
-  ngOnInit() { }
+  constructor(
+    private _loadingService: LoadingService,
+    private _apiService: ApiService,
+    private _router: Router,
+    private _store: CoreStore
+  ) {}
+
+  ngOnInit() {}
 
   public takePicture() {
     Camera.getPhoto({
       quality: 90,
       allowEditing: true,
-      resultType: CameraResultType.Uri
-    }).then((photo) => {
-      this._readBlob(photo.webPath as string).then((blob) => {
-        const file = this._blobToFile(blob, 'image.jpg');
-        this._predict(file);
+      resultType: CameraResultType.Uri,
+    })
+      .then((photo) => {
+        this._readBlob(photo.webPath as string).then((blob) => {
+          const file = this._blobToFile(blob, 'image.jpg');
+          this._predict(file);
+        });
       })
-    }).catch((error) => {
-      console.log(error);
-    });
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   public _predict(image: File) {
     this._loadingService.showLoading();
-    this._apiService.postImage(image)
+    this._apiService
+      .postImage(image)
       .subscribe(
         (response: Predict) => {
           this._store.setDataId(response.dataId);
-          this._store.setPredictedClass(response.predictedClass);
+          this._store.setPredictedClass(response.name);
+          this._store.setDescription(response.description);
+          this._store.setImage(response.image);
           this._router.navigate(['/detail', response.dataId]);
         },
         (error) => {
           console.error('API Error:', error);
-        })
+        }
+      )
       .add(() => {
         this._loadingService.hideLoading();
       });
   }
 
   private async _readBlob(path: string): Promise<Blob> {
-    return await fetch(path).then(r => r.blob());
+    return await fetch(path).then((r) => r.blob());
   }
 
   private _blobToFile(blob: Blob, fileName: string): File {
     const file = new File([blob], fileName, { type: blob.type });
     return file;
   }
-  
 }

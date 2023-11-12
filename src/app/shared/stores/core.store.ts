@@ -4,13 +4,14 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CoreStore extends Store<CoreState> {
-
   private readonly _prefix: string;
   private readonly DATA_ID = 'dataId';
   private readonly PREDICTED_CLASS = 'predictedClass';
+  private readonly IMAGE = 'image';
+  private readonly DESCRIPTION = 'description';
 
   public ready$: Promise<any[]>;
 
@@ -22,6 +23,8 @@ export class CoreStore extends Store<CoreState> {
     this.ready$ = Promise.all([
       this.initValue(this.DATA_ID),
       this.initValue(this.PREDICTED_CLASS),
+      this.initValue(this.IMAGE),
+      this.initValue(this.DESCRIPTION),
     ]);
   }
 
@@ -31,6 +34,22 @@ export class CoreStore extends Store<CoreState> {
 
   public removeDataId(): Promise<any> {
     return this.removeValue(this.DATA_ID);
+  }
+
+  public setImage(value: string): Promise<any> {
+    return this.setValue(this.IMAGE, value);
+  }
+
+  public removeImage(): Promise<any> {
+    return this.removeValue(this.IMAGE);
+  }
+
+  public setDescription(value: string): Promise<any> {
+    return this.setValue(this.DESCRIPTION, value);
+  }
+
+  public removeDescription(): Promise<any> {
+    return this.removeValue(this.DESCRIPTION);
   }
 
   public setPredictedClass(value: string): Promise<any> {
@@ -43,13 +62,16 @@ export class CoreStore extends Store<CoreState> {
 
   private initValue(prop: keyof CoreState): Promise<any> {
     const key = `${this._prefix}-${prop}`;
-    return this._storage.get(key).then(value => {
-      this.setStateValue(prop, value);
-      return value;
-    }).catch(_ => {
-      this.setStateValue(prop, undefined);
-      return undefined;
-    });
+    return this._storage
+      .get(key)
+      .then((value) => {
+        this.setStateValue(prop, value);
+        return value;
+      })
+      .catch((_) => {
+        this.setStateValue(prop, undefined);
+        return undefined;
+      });
   }
 
   private setValue(prop: keyof CoreState, value: any): Promise<any> {
@@ -68,11 +90,11 @@ export class CoreStore extends Store<CoreState> {
     const key = `${this._prefix}-${prop}`;
     return this._storage.remove(key);
   }
-  
+
   private setStateValue(prop: keyof CoreState, value: any): void {
     this.state = {
       ...this.state,
-      [prop]: value
+      [prop]: value,
     };
   }
 }

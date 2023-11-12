@@ -7,7 +7,7 @@ import { Predict } from '../interfaces/predict.interface';
   providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl = 'http://203.194.113.223:3000/api/v1/predict';
+  private apiUrl = 'https://pitg.buruhdev.cloud/api/v1/predict';
 
   constructor(private http: HttpClient) {}
 

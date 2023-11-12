@@ -1,4 +1,6 @@
 export interface Predict {
-    predictedClass: string;
-    dataId: string;
+  dataId: string;
+  name: string;
+  description: string;
+  image: string;
 }

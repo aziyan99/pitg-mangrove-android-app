@@ -2,10 +2,9 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appBackgroundImage]',
-  standalone: true
+  standalone: true,
 })
 export class BackgroundImageDirective implements OnInit {
-
   @Input() imageSrc = '';
 
   constructor(private _elementRef: ElementRef) {}
