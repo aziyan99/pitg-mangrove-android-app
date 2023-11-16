@@ -1,5 +1,5 @@
 {
-  "name": "PITGMANGROVE",
+  "name": "pitg-mangrove",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -31,6 +31,7 @@
     "@ionic/angular": "^7.0.0",
     "@ionic/pwa-elements": "^3.2.2",
     "@ionic/storage": "^4.0.0",
+    "@ngneat/elf": "^2.4.0",
     "ionicons": "^7.0.0",
     "markdown-it": "^13.0.2",
     "rxjs": "~7.8.0",
@@ -74,5 +75,5 @@
     "ts-node": "^8.3.0",
     "typescript": "~5.0.2"
   },
-  "description": "An Ionic project"
+  "description": "An pitg project"
 }

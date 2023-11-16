@@ -2,20 +2,30 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '',
-    loadComponent: () => import('./main/main.page').then( m => m.MainPage),
-    pathMatch: 'full'
+    path: 'main',
+    loadChildren: () =>
+      import('./main/feature/main-shell/main-shell.module').then(
+        (m) => m.MainMenuShellModule
+      ),
   },
   {
     path: 'help',
-    loadComponent: () => import('./help/help.page').then( m => m.HelpPage)
+    loadChildren: () =>
+      import('./help/feature/help.module').then((m) => m.HelpPageModule),
   },
   {
     path: 'about',
-    loadComponent: () => import('./about/about.page').then( m => m.AboutPage)
+    loadChildren: () =>
+      import('./about/feature/about.module').then((m) => m.AboutPageModule),
   },
+  // {
+  //   path: 'detail/:id',
+  //   loadComponent: () =>
+  //     import('./detail/detail.page').then((m) => m.DetailPage),
+  // },
   {
-    path: 'detail/:id',
-    loadComponent: () => import('./detail/detail.page').then( m => m.DetailPage)
+    path: '',
+    redirectTo: 'main',
+    pathMatch: 'full',
   },
 ];
