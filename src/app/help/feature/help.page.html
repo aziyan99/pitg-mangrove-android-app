@@ -1,0 +1,14 @@
+<ion-content [fullscreen]="true">
+    <div class="min-h-screen bg-green-50">
+        <div class="h-[40vh] rounded-b-xl border border-green-100">
+            <div [routerLink]="['/']"
+                class="flex items-center w-12 h-12 mt-4 ml-4 bg-green-400 rounded-full show justify-cente">
+                <ion-icon class="w-6 h-6 mx-auto" name="arrow-back"></ion-icon>
+            </div>
+        </div>
+        <div class="px-3">
+            <h3>Help</h3>
+            <div [innerHtml]="helpText$ | async | markdown"></div>
+        </div>
+    </div>
+</ion-content>

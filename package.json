@@ -1,5 +1,5 @@
 {
-  "name": "PITGMANGROVE",
+  "name": "pitg-mangrove",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -17,10 +17,12 @@
     "@angular/common": "^16.0.0",
     "@angular/compiler": "^16.0.0",
     "@angular/core": "^16.0.0",
+    "@angular/pwa": "^16.0.0",
     "@angular/forms": "^16.0.0",
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "@angular/service-worker": "^16.0.0",
     "@capacitor/android": "5.5.1",
     "@capacitor/app": "5.0.6",
     "@capacitor/camera": "^5.0.7",
@@ -31,6 +33,7 @@
     "@ionic/angular": "^7.0.0",
     "@ionic/pwa-elements": "^3.2.2",
     "@ionic/storage": "^4.0.0",
+    "@ngneat/elf": "^2.4.0",
     "ionicons": "^7.0.0",
     "markdown-it": "^13.0.2",
     "rxjs": "~7.8.0",
@@ -74,5 +77,5 @@
     "ts-node": "^8.3.0",
     "typescript": "~5.0.2"
   },
-  "description": "An Ionic project"
+  "description": "An pitg project"
 }

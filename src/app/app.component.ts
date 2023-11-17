@@ -2,8 +2,6 @@ import { Component, EnvironmentInjector, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ApiService } from './shared/services/predict-api.service';
-import { CoreStore } from './shared/stores/core.store';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -12,7 +10,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['app.component.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, HttpClientModule],
-  providers: [ApiService, Storage, CoreStore]
+  providers: [Storage],
 })
 export class AppComponent {
   public environmentInjector = inject(EnvironmentInjector);
