@@ -3,7 +3,7 @@ import { LoadingController } from '@ionic/angular';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoadingService {
   private loadingSubject = new Subject<boolean>();
@@ -17,12 +17,11 @@ export class LoadingService {
   public async showLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
-    //   duration: 2000,
       backdropDismiss: false,
     });
 
-    this.loadingSubject.next(true);
     await loading.present();
+    this.loadingSubject.next(true);
   }
 
   public hideLoading() {

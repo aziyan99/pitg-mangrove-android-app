@@ -7,6 +7,7 @@ import { Config } from '../interfaces/config.interface';
 import { HelpRepository } from 'src/app/help/data-access/help.store';
 import { Predict } from '../interfaces/predict.interface';
 import { MainMenuRepository } from 'src/app/main/data-access/predict.store';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class PitgService extends ApiAbstract {
     private _helpRepository: HelpRepository,
     private _mainMenuRepository: MainMenuRepository
   ) {
-    super(_http, 'https://pitg.buruhdev.cloud/api/v1/');
+    super(_http, environment.apiUrl);
   }
 
   public getConfigs(): Observable<Config> {

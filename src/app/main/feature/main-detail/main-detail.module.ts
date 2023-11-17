@@ -5,21 +5,21 @@ import { PitgService } from 'src/app/shared/data-access/pitg.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkdownPipe } from 'src/app/shared/pipes/markdown.pipe';
 import { BackgroundImageDirective } from 'src/app/shared/directives/background-image.directive';
-import { MainMenuPageRoutingModule } from './main-menu-routing.module';
-import { MainMenuPage } from './main-menu.page';
+import { MainDetailPage } from './main-detail.page';
+import { MainDetailPageRoutingModule } from './main-detail-routing.module';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    MainMenuPageRoutingModule,
+    MainDetailPageRoutingModule,
     HttpClientModule,
     MarkdownPipe,
     BackgroundImageDirective,
     RouterModule,
   ],
-  declarations: [MainMenuPage],
+  declarations: [MainDetailPage],
   providers: [PitgService],
 })
-export class MainMenuPageModule {}
+export class MainDetailPageModule {}

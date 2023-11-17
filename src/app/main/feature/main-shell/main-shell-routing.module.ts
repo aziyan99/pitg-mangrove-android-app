@@ -7,13 +7,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('../main-menu/main-menu.module').then((m) => m.MainMenuPageModule),
   },
-  //   {
-  //     path: ':id',
-  //     loadChildren: () =>
-  //       import('../client-detail/client-detail.module').then(
-  //         (m) => m.ClientDetailPageModule
-  //       ),
-  //   },
+  {
+    path: ':id',
+    loadChildren: () =>
+      import('../main-detail/main-detail.module').then(
+        (m) => m.MainDetailPageModule
+      ),
+  },
 ];
 
 @NgModule({

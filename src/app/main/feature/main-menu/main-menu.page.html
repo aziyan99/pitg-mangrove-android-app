@@ -1,7 +1,8 @@
 <ion-content>
     <div class="flex items-center justify-center min-h-screen bg-green-50">
         <div>
-            <div class="w-[250px] border border-green-200 h-16 rounded bg-green-200 shadow-lg hover:shadow">
+            <div (click)="onCameraButtonClick()"
+                class="w-[250px] border border-green-200 h-16 rounded bg-green-200 shadow-lg hover:shadow">
                 <div class="flex items-center justify-center h-full">
                     <ion-icon name="camera-outline" class="w-6 h-6 mr-2"></ion-icon>
                     <div class="align-middle">Camera</div>
