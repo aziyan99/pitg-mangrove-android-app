@@ -5,6 +5,7 @@ import { CameraService } from '../../data-access/camera.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
 import { finalize, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { LayoutRepository } from 'src/app/shared/data-access/layout.store';
 
 @Component({
   selector: 'app-main',
@@ -12,12 +13,14 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainMenuPage implements OnInit {
+  public showSplashScreen$ = this._layoutRepository.showSplashScreen$;
   constructor(
     private _pitgService: PitgService,
     private _mainMenuRepository: MainMenuRepository,
     private _cameraService: CameraService,
     private _loadingService: LoadingService,
-    private _router: Router
+    private _router: Router,
+    private _layoutRepository: LayoutRepository
   ) {}
 
   public ngOnInit(): void {
