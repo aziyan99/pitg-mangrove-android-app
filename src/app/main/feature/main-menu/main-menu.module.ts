@@ -8,6 +8,9 @@ import { BackgroundImageDirective } from 'src/app/shared/directives/background-i
 import { MainMenuPageRoutingModule } from './main-menu-routing.module';
 import { MainMenuPage } from './main-menu.page';
 import { RouterModule } from '@angular/router';
+import { SplashScreenComponent } from 'src/app/shared/ui/splash-screen/splash-screen.component';
+import { InternetConnectionService } from 'src/app/shared/data-access/internet-connection.service';
+import { InternetConnectionGuard } from 'src/app/shared/guards/internet-connection.guard';
 
 @NgModule({
   imports: [
@@ -18,8 +21,9 @@ import { RouterModule } from '@angular/router';
     MarkdownPipe,
     BackgroundImageDirective,
     RouterModule,
+    SplashScreenComponent,
   ],
   declarations: [MainMenuPage],
-  providers: [PitgService],
+  providers: [PitgService, InternetConnectionService, InternetConnectionGuard],
 })
 export class MainMenuPageModule {}

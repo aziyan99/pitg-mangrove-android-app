@@ -24,7 +24,11 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'main',
+    loadChildren: () =>
+      import('./on-boarding/feature/on-boarding.module').then(
+        (m) => m.OnBoardingPageModule
+      ),
+    title: `On Boarding | ${environment.appName}`,
     pathMatch: 'full',
   },
 ];

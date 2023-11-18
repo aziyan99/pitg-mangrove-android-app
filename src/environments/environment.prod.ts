@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
   apiUrl: 'https://pitg.buruhdev.cloud/api/v1',
-  appName: 'PITG Mangrove',
+  appName: 'MANG-ID',
+  checkUrl: 'https://pitg.buruhdev.cloud/login',
 };
