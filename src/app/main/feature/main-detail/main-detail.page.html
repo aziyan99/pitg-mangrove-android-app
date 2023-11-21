@@ -7,8 +7,8 @@
             </div>
         </div>
         <div class="px-3">
-            <h1>{{ (predict$ | async)?.name }}</h1>
-            <div [innerHtml]="(predict$ | async)?.description ?? '' | markdown"></div>
+            <h1 class="text-gray-900">{{ (predict$ | async)?.name }}</h1>
+            <div class="text-gray-900" [innerHtml]="(predict$ | async)?.description ?? '' | markdown"></div>
         </div>
     </div>
 </ion-content>
