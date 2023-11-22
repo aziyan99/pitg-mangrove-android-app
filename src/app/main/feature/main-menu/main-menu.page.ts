@@ -14,6 +14,11 @@ import { LayoutRepository } from 'src/app/shared/data-access/layout.store';
 })
 export class MainMenuPage implements OnInit {
   public showSplashScreen$ = this._layoutRepository.showSplashScreen$;
+  public bg1: string = '../assets/bg1.JPG';
+  public cameraIcon: string = '../assets/camera.png';
+  public helpIcon: string = '../assets/question.png';
+  public aboutIcon: string = '../assets/information.png';
+
   constructor(
     private _pitgService: PitgService,
     private _mainMenuRepository: MainMenuRepository,
