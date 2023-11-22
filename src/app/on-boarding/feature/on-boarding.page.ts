@@ -16,10 +16,11 @@ import { take, timer } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OnBoardingPage implements OnInit {
+  public UmrahLogopath: string = '../assets/logo_umrah.png';
   constructor(private _router: Router) {}
 
   public ngOnInit(): void {
-    const durationInMilliseconds = 1.5 * 1000;
+    const durationInMilliseconds = 2 * 1000;
     const timer$ = timer(durationInMilliseconds).pipe(take(1));
 
     timer$.subscribe(() => {
