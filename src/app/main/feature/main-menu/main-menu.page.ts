@@ -3,9 +3,11 @@ import { PitgService } from 'src/app/shared/data-access/pitg.service';
 import { MainMenuRepository } from '../../data-access/predict.store';
 import { CameraService } from '../../data-access/camera.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
-import { finalize, tap } from 'rxjs';
+import {finalize, tap, throwError} from 'rxjs';
 import { Router } from '@angular/router';
 import { LayoutRepository } from 'src/app/shared/data-access/layout.store';
+import {ToastService} from "../../../shared/services/toast.service";
+import {catchError} from "rxjs/operators";
 
 @Component({
   selector: 'app-main',
@@ -25,7 +27,8 @@ export class MainMenuPage implements OnInit {
     private _cameraService: CameraService,
     private _loadingService: LoadingService,
     private _router: Router,
-    private _layoutRepository: LayoutRepository
+    private _layoutRepository: LayoutRepository,
+    private _toastService: ToastService
   ) {}
 
   public ngOnInit(): void {
@@ -42,6 +45,10 @@ export class MainMenuPage implements OnInit {
           .pipe(
             tap((predict) => {
               this._router.navigate(['main', predict.dataId]);
+            }),
+            catchError((error) => {
+              this._toastService.showToast('Gagal melakukan prediksi. Mohon untuk mengulangi kembali')
+              return throwError(error);
             }),
             finalize(() => {
               this._loadingService.hideLoading();

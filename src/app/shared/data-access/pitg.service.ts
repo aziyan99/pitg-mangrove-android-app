@@ -41,6 +41,7 @@ export class PitgService extends ApiAbstract {
     return this.post<Predict>('predict', formData).pipe(
       tap((predict) => {
         this._mainMenuRepository.setPredict(predict);
+        this._mainMenuRepository.setImageSrc(predict.image);
       })
     );
   }
