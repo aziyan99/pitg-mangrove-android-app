@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MainDetailPage implements OnInit {
   public predict$ = this._mainMenuRepository.predict$;
+  public imageSrc$ = this._mainMenuRepository.imageSrc$;
 
   constructor(
     private _mainMenuRepository: MainMenuRepository,

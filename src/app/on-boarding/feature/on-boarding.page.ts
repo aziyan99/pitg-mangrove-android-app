@@ -20,7 +20,7 @@ export class OnBoardingPage implements OnInit {
   constructor(private _router: Router) {}
 
   public ngOnInit(): void {
-    const durationInMilliseconds = 2 * 1000;
+    const durationInMilliseconds = 3 * 1000;
     const timer$ = timer(durationInMilliseconds).pipe(take(1));
 
     timer$.subscribe(() => {
